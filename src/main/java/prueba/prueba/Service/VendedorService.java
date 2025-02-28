@@ -40,23 +40,17 @@ public class VendedorService {
 
     }
 
-    public Object editarVendedor(Integer id, VendedorModelo vendedorModelo)  {
+    public VendedorModelo editarVendedor(Integer id, VendedorModelo vendedorModelo) throws Exception {
         Optional<VendedorModelo> editarVendedor = vendedorRepository.findById(id);
-        if (editarVendedor.isPresent())
-        {
+        if (editarVendedor.isPresent()) {
             VendedorModelo vendedorEditado = editarVendedor.get();
-            vendedorEditado.setCedula_vendedor(editarVendedor.get().getCedula_vendedor());
-            vendedorEditado.setNombre(editarVendedor.get().getNombre());
-            vendedorEditado.setApellido(editarVendedor.get().getApellido());
+            vendedorEditado.setCedula_vendedor(vendedorModelo.getCedula_vendedor());
+            vendedorEditado.setNombre(vendedorModelo.getNombre());
+            vendedorEditado.setApellido(vendedorModelo.getApellido());
             return vendedorRepository.save(vendedorEditado);
-
+        } else {
+            throw new Exception("Vendedor no existe");
         }
-        else {
-            System.out.println("vendedor no encontrado");
-        }
-
-
-        return null;
     }
 
     public void removeUser(Integer id)  {

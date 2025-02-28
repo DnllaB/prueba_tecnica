@@ -36,10 +36,16 @@ public class VendedorController {
         return new ResponseEntity<>(vendedorModelo, HttpStatus.OK);
     }
 
-    @PatchMapping("/{id}")
+    @PostMapping("/{id}")
     public ResponseEntity<?> nuevoVendedor(@RequestBody VendedorModelo vendedorModelo) {
         vendedorService.nuevoVendedor(vendedorModelo);
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<?> editarVendedor(@PathVariable Integer id, @RequestBody VendedorModelo vendedorModelo) throws Exception {
+        vendedorService.editarVendedor(id,vendedorModelo);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 
