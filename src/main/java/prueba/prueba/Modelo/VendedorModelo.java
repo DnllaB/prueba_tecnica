@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @AllArgsConstructor
-
+@NoArgsConstructor
 @Table(name = "vendedor")
 public class VendedorModelo {
     @Id
@@ -20,6 +20,4 @@ public class VendedorModelo {
     private String apellido;
 
 
-    public VendedorModelo() {
-    }
 }

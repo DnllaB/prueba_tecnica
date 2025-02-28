@@ -54,19 +54,19 @@ public class ProductoService {
             return productoRepository.save(productoEditado);
 
         }
-        return "Vendedor no existe";
+        return "Producto no existe";
     }
 
-    public void removeUser(Integer id)  {
+    public void eliminarProducto(Integer id)  {
         Optional<ProductoModelo> productoModelo = productoRepository.findById(id);
         if (productoModelo.isPresent())
         {
-            ProductoModelo vendedor = productoModelo.get();
-            productoRepository.delete(vendedor);
+            ProductoModelo producto = productoModelo.get();
+            productoRepository.delete(producto);
 
         }
         else {
-            System.out.println("Vendedor no encontrado");
+            System.out.println("Producto no encontrado");
         }
 
     }

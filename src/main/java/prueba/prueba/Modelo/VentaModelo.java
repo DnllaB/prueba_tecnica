@@ -1,12 +1,16 @@
 package prueba.prueba.Modelo;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
-@Data
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "venta")
 public class VentaModelo {
 
